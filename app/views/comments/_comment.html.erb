@@ -1,0 +1,23 @@
+<% unless comment.archived? %>
+
+<div style="display:flex; justify-content:center; align-items:center">
+<div style="margin-bottom:10px; background-color: white; width:80%;">
+<div>
+  <strong><%= comment.commenter %></strong>
+</div>
+
+<div>
+  <%= comment.body %>
+</div>
+
+<div>
+  <%= link_to "Destroy Comment", [comment.article, comment], data: {
+                turbo_method: :delete,
+                turbo_confirm: "Are you sure?"
+              } %>
+
+
+<% end %>
+</div>
+</div>
+</div>

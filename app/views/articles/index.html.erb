@@ -1,0 +1,27 @@
+
+<div style="display:flex; justify-content:center; align-items:center; background-color:pink; color:rgb(120, 120, 120); height: 120px; margin-top:40px;"><h1>PHOTO ALBUM</h1></div>
+
+
+<div style="display:flex; flex-wrap: wrap; flex-direction:row; margin:50px; gap:30px; width:screen; justify-content:center;" class="d-grid d-md-flex">
+<div class="card" style="width: 18rem;">
+  <img src="https://cdn.pixabay.com/photo/2017/11/10/05/24/add-2935429_960_720.png", class: "card-img-top" alt: "blank">
+  <div class="card-body">
+    <%=link_to 'Add New Article', new_article_path, class: "btn btn-primary", style:"background-color:rgb(255,165,190); border-color:white;" %>
+  </div>
+</div>
+
+
+<% @articles.each do |article| %>
+  <% unless article.archived? %>
+<div class="card" style="width: 18rem;">
+<%= image_tag article.image, class: "card-img-top" rescue image_tag "https://cdn.pixabay.com/photo/2017/11/10/05/24/add-2935429_960_720.png", class: "card-img-top" %>
+  <div class="card-body", style="background-color:rgb(240,240,240); width: 18rem; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">
+    <h5 class="card-title text-truncate"><%= article.title %></h5>
+    <p class="card-text text-truncate"><%= article.text %></p>
+    <%= link_to 'Show', article, class:"btn btn-primary", style:"background-color:rgb(255,165,190); border-color:white; color:rgb(120,120,120)" %>
+  </div>
+</div>
+<% end %>
+<% end %>
+
+</div>

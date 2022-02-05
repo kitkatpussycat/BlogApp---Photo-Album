@@ -1,0 +1,35 @@
+<div style="display:flex; justify-content:center; flex-direction:column; align-items:center">
+<div style="margin-left:100px; margin-right:100px">
+
+<div style="display:flex; justify-content:end">
+<div>
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<a href="/articles">Back</a> |
+<%= link_to 'Destroy', article_path,
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+</div>
+</div>
+
+<div style="display:flex; justify-content:center; align-items:center; margin-bottom:30px">
+<h1><%= @article.title %></h1>
+</div>
+
+<div style="display:flex; justify-content:center; align-items:center; margin-bottom:80px">
+<%= image_tag @article.image, style:"height:400px;" rescue image_tag "https://image.pngaaa.com/768/791768-middle.png", style: "height:400px;"%>
+</div>
+
+<div style="text-align:justify; text-justify: inter-word; margin-bottom:50px;">
+<%= @article.text %>
+</div>
+
+<div style="background-color:rgb(240,240,240);">
+<h6>Comments</h6>
+<%= render @article.comments %>
+
+
+<h6>Add a comment:</h6>
+<%= render 'comments/form' %>
+</div>
+</div>
+</div>
